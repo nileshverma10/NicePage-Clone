@@ -2,13 +2,14 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-export const Login = () => {
+ const Login = () => {
 const navigate= useNavigate()
 
   useEffect(() => {
     const data= localStorage.getItem("token")
+    console.log(data)
     if(data){
-        navigate("/home")
+        // navigate("/home")
     }
   })
     const [email,setEmail] = useState("")
@@ -21,8 +22,8 @@ const navigate= useNavigate()
         })
         .then((res) =>{
             console.log(res.data)
-            localStorage.setItem("token",JSON.stringify(res.data))
-            if(res.data){
+            // localStorage.setItem("token",JSON.stringify(res.data))
+            if(res.data.email===email && res.data.password===password){
                 navigate("/home")
             }else{
                 console.log("err in login api")
@@ -44,3 +45,4 @@ const navigate= useNavigate()
     </div>
   )
 }
+export default Login

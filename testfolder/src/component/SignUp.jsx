@@ -2,13 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import  { useNavigate } from 'react-router-dom'
-export const SignUp = () => {
+ const SignUp = () => {
     const [name,setName] = useState("")
     const [surname,setSurname] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     const navigate = useNavigate()
-
+         
     const handleSignUp =() =>{
         axios.post("https://reqres.in/api/register",
        { email:email,
@@ -18,7 +18,7 @@ export const SignUp = () => {
             console.log(res.data)
             if(res.data){
                 localStorage.setItem("token",JSON.stringify(res.data))
-                navigate("/home")
+                navigate("/login")
             }else{
                 console.log("error in your register api")
             }
@@ -46,3 +46,4 @@ export const SignUp = () => {
     </div>
   )
 }
+export default SignUp
