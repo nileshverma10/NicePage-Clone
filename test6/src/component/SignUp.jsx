@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import  { useNavigate } from 'react-router-dom'
  const SignUp = () => {
     const [name,setName] = useState("")
@@ -10,26 +10,9 @@ import  { useNavigate } from 'react-router-dom'
     const navigate = useNavigate()
          
     const handleSignUp =() =>{
-       var data=[]
-
-        axios.post("https://reqres.in/api/register",
-       { email:email,
-        password:password}
-        )
-        .then((res) =>{
-            data.push({
-                email:email,
-                password:password,
-                name:name,
-                surname:surname
-            })
-            localStorage.setItem("userdata",JSON.stringify(data))
-            console.log(res.data)
-                navigate("/login")
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+    console.log(name,surname,email,password)
+    localStorage.setItem("keyData",JSON.stringify({name,surname,email,password}))
+ 
     }
   return (
     <div>

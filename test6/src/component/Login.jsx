@@ -1,37 +1,34 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
  const Login = () => {
 const navigate= useNavigate()
+     
 
-  useEffect(() => {
-    const data= localStorage.getItem("token")
-    console.log(data)
-    if(data){
-        navigate("/home")
-    }
-  })
+
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
     
     const handleLogin = () =>{
-        axios.post("https://reqres.in/api/register",{
-            email:email,
-            password:password,
-        })
-        .then((res) =>{
-            console.log(res.data)
-            localStorage.setItem("token",JSON.stringify(res.data))
-            // if(res.data.email===email && res.data.password===password){
+        const data = localStorage.getItem("keyData")
+        console.log(data)
+        // if(data && data.length){
+            // const result = JSON.parse(data)
+            // console.log(result)
+            // const savedData = 
+            // result.filter((elem, index)=>{
+            //     return elem.email===email && elem.password===password    
+            // })
+            if(data.email===!email && data.password===!password){
+                console.log("please filll correct detail")
+            }else{
                 navigate("/home")
-            // }else{
-                // console.log("err in login api")
+            }
+            // if(savedData){
+                // navigate("/home")
             // }
-        })
-        .catch((err) =>{
-            console.log("login",err)
-        })
+        // }
     }
   return (
     <div>Login

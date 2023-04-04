@@ -4,12 +4,12 @@ import Navbar from './Navbar'
 import  SignUp  from './SignUp'
 import  Login  from './Login'
 import Home from './Home'
-import Private from './Private'
-import  Logout  from './Logout'
+import Private from './PrivateComp'
+import  {Logout}  from './Logout'
 
 
 
- const Router1 = () => {
+ const RouterFile = () => {
   return (
     <div>
     <Navbar/>
@@ -25,4 +25,4 @@ import  Logout  from './Logout'
     </div>
   )
 }
-export default Router1
+export default RouterFile
